@@ -1,0 +1,53 @@
+.pace {
+    display: none;
+}
+
+.main-style {
+    min-height: 100vh;
+    background: url(../img/cover/cover-scrum-board.png) no-repeat fixed;
+    background-size: 360px;
+    background-position: right bottom;
+    background-color: #FAF6EF;
+}
+
+.cart{
+    background-color:#FAF7F0;
+}
+
+.cart:hover{
+    background-color: #dfdcd4;
+}
+
+.high{
+    background-color:#D9CDB8;
+}
+
+.bug{
+    border-color:#D9CDB8;
+}
+
+li a{
+    text-decoration: none;
+    color:black;
+}
+
+li a:hover{
+     background-color:#D9CDB8; 
+     color: white;
+
+}
+li a:active{
+    font-weight: bold;
+}
+
+.modal_body{
+    background-color: #E9ECE1;
+}
+
+.btn-hide{
+    visibility: hidden;
+}
+
+.btn-visible{
+    visibility: visible;
+}
