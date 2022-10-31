@@ -61,40 +61,41 @@ include "./php/display.php";
 							</div>
 							<div class="modal-body modal_body">
 								<form action="./php/add.php" method="POST" id="first" class="d-block fw-bold">
+									<div id="hidden"></div>
 									<label for="titre" class="d-block">titre:</label>
 									<input class="form-control input-sm m-1 cart shadow-sm" type="text" name="title" id="title" value="title" required>
 									</br>
 									<label for="type" class="d-block">type:</label>
-                                  <?php 
-								  while($row=$type->fetch_object()){
-									echo '
+									<?php
+									while ($row = $type->fetch_object()) {
+										echo '
 									<div class="form-check">
-										<input class="form-check-input mx-2 cart shadow-sm" type="radio" name="type" id="'.$row->type_label.'" value="'.$row->type_id.'" selected>
-										<label class="form-check-label">'.$row->type_label.'</label>
+										<input class="form-check-input mx-2 cart shadow-sm" type="radio" name="type" id="' . $row->type_label . '" value="' . $row->type_id . '" selected>
+										<label class="form-check-label">' . $row->type_label . '</label>
 									</div>';
-								    }
-								  ?>
+									}
+									?>
 									</br>
 									<label for="propriete" class="d-block">propriete:</label>
 									<select class="form-select form-select-sm m-1 cart shadow-sm" name="priority" id="priority">
-									<?php 
-								  while($row=$priority->fetch_object()){
-									echo '
-										<option value="'.$row->priority_id.'">'.$row->priority_label.'</option>
+										<?php
+										while ($row = $priority->fetch_object()) {
+											echo '
+										<option value="' . $row->priority_id . '">' . $row->priority_label . '</option>
 										';
-								  }
-									?>
+										}
+										?>
 									</select>
 									</br>
 									<label for="status" class="d-block">status:</label>
 									<select class="form-select form-select-sm m-1 cart shadow-sm" name="status" id="status" required>
-                                   <?php
-								  while($row=$status->fetch_object()){
-									echo '
-										<option value="'.$row->status_id.'">'.$row->status_label.'</option>
+										<?php
+										while ($row = $status->fetch_object()) {
+											echo '
+										<option value="' . $row->status_id . '">' . $row->status_label . '</option>
 										';
-								  }
-									?>
+										}
+										?>
 									</select>
 									</br>
 									<label for="date" class="d-block">date:</label>
@@ -104,7 +105,7 @@ include "./php/display.php";
 									<textarea class="form-control m-1 cart shadow-sm" id="description" name="description" rows="5" cols="33">description...</textarea>
 									<div class="modal-footer modal_body" id="button">
 										<button type="button" class="btn bug shadow-sm" data-dismiss="modal">Close</button>
-										<button type="submit" id="hide" class="btn high shadow-sm ">Save changes</button>
+										<button type="submit" name="save" id="hide" class="btn high shadow-sm ">Save changes</button>
 									</div>
 								</form>
 							</div>
@@ -122,42 +123,10 @@ include "./php/display.php";
 					<div class="container list-group list-group-flush p-2 rounded-2 h-90" style="background-color:#E6EEC7;" id="to-do-tasks">
 						<!-- TO DO TASKS HERE -->
 						<?php
-						$i=1;
-						while($row = $status->fetch_object()){
-
-							if($row->status_label=="To Do"){
-								
-
-							echo 
-						'<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
-							<div class="col-1">
-							      <i class="bi bi-question-circle fs-3"></i>
-							</div>
-							<div class="col-11 d-flex justify-content-around align-items-center">
-								<div class=" col-9 card-body text-start">
-									<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
-									<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
-										'</div>
-									<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
-									<div>
-										<i class="bi bi-trash text-danger  me-1" onclick=""></i>
-										<i class="bi bi-pen text-yellow me-1"></i>
-									</div>
-								</div>
-								<div class="col-3 d-flex flex-column align-content-center">
-									<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
-										</span>
-									<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
-										</span>
-								</div>
-							</div>
-						</button>';
-						
-						$i++;
-					}
-					}
-					?>
-					<!-- data-toggle="modal" data-target="#ModalUp'.$row->a->task_id.'" -->
+						display("To_Do");
+					
+						?>
+						<!-- data-toggle="modal" data-target="#ModalUp'.$row->a->task_id.'" -->
 					</div>
 				</div>
 
@@ -168,38 +137,8 @@ include "./php/display.php";
 					<div class="contenaire container list-group list-group-flush p-2 rounded-2 border h-90" id="in-progress-tasks" style="background-color:#E7EADA;">
 						<!-- IN PROGRESS TASKS HERE -->
 						<?php
-						$i=1;
-						while($row = $status->fetch_object()){
-							if($row->status_label=="In Progress"){
-							echo 
-						'<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
-							<div class="col-1">
-							     <i class="spinner-border spinner-border-sm text-green me-1"></i>
-							</div>
-							<div class="col-11 d-flex justify-content-around align-items-center">
-							<div class=" col-9 card-body text-start">
-							<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
-							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
-								'</div>
-							<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
-							<div>
-								<i class="bi bi-trash text-danger  me-1" onclick=""></i>
-								<i class="bi bi-pen text-yellow me-1"></i>
-							</div>
-						</div>
-						<div class="col-3 d-flex flex-column align-content-center">
-							<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
-								</span>
-							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
-								</span>
-						</div>
-					</div>
-				</button>';
-						
-						$i++;
-					}
-					}
-					?>
+						display("In_Progress");
+						?>
 					</div>
 				</div>
 
@@ -211,38 +150,8 @@ include "./php/display.php";
 					<div class="contenaire container list-group list-group-flush p-2 rounded-2 h-90" id="done-tasks" style="background-color:#E9ECE1;">
 						<!-- DONE TASKS HERE -->
 						<?php
-						$i=1;
-						while($row = $status->fetch_object()){
-							if($row->status_label=="Done"){
-							echo 
-						'<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
-							<div class="col-1">
-								<i class="bi bi-check2-square fs-3"></i>
-							</div>
-							<div class="col-11 d-flex justify-content-around align-items-center">
-							<div class=" col-9 card-body text-start">
-							<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
-							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
-								'</div>
-							<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
-							<div>
-								<i class="bi bi-trash text-danger  me-1" onclick=""></i>
-								<i class="bi bi-pen text-yellow me-1"></i>
-							</div>
-						</div>
-						<div class="col-3 d-flex flex-column align-content-center">
-							<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
-								</span>
-							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
-								</span>
-						</div>
-					</div>
-				</button>';
-					
-						$i++;
-					}
-					}
-					?>
+						display("Done");
+						?>
 					</div>
 				</div>
 			</div>
@@ -262,7 +171,7 @@ include "./php/display.php";
 	</div>
 
 	<!-- update -->
-	
+
 
 	<!-- ================== BEGIN core-js ================== -->
 
