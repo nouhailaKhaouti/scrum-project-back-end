@@ -131,31 +131,16 @@ function createTask() {
   initTaskForm();
   // Afficher le boutton save
   btn.innerHTML = `<button type="button" class="btn bug shadow-sm" data-dismiss="modal">Close</button>
-    <button type="submit" onClick="saveTask()" id="hide" class="btn high shadow-sm " >Save changes</button>`;
+    <button type="submit"  id="hide" class="btn high shadow-sm " data-dismiss="modal" >Save changes</button>`;
   // Ouvrir modal form
   $("#Modal").modal("show");
 }
 
 function saveTask() {
-  // event.preventDefault();
-  // prevent reloading the page
-  // Recuperer task attributes a partir les champs input
-  // Créez task object
-  // let formDataObj = {
-  //   // id            :   tasks.length+1,
-  //   title: document.getElementById("title").value,
-  //   type: radiocheck().value,
-  //   priority: document.getElementById("priority").value,
-  //   status: document.getElementById("status").value,
-  //   date: document.getElementById("date").value,
-  //   description: document.getElementById("description").value,
-  // };
-  // // Ajoutez object au Array
-  // tasks.push(formDataObj); //add the new formData to array tasks
-  // refresh tasks
+
   $("#Modal").modal("hide");
   Swal.fire("Good job!", "You clicked the button!", "success");
-  initTaskForm();
+  // initTaskForm();
 }
 
 function editTask(i) {
@@ -175,11 +160,13 @@ function editTask(i) {
   // let btn = document.getElementById("button");
   // document.getElementById('update').innerHTML = `<input type="hidden" name='id' id='id' value="${i}"/>`;
   // Definir FORM INPUTS
+  btn.innerHTML = `<button type="button" class="btn bug shadow-sm" data-dismiss="modal">Close</button>
+  <button type="submit" onClick="updateTask(${i})" id="hide" class="btn high shadow-sm " >Update</button>`;
   // Ouvrir Modal form
   $("#Modal").modal("show");
 }
 
-function updateTask() {
+function updateTask(i) {
   // console.log("update" + i);
   // // GET TASK ATTRIBUTES FROM INPUTS
   // // Créez task object

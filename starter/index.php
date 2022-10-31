@@ -125,7 +125,7 @@ include "./php/display.php";
 						$i=1;
 						while($row = $status->fetch_object()){
 
-							if($row["status_label"]=="To Do"){
+							if($row->status_label=="To Do"){
 								
 
 							echo 
@@ -135,19 +135,19 @@ include "./php/display.php";
 							</div>
 							<div class="col-11 d-flex justify-content-around align-items-center">
 								<div class=" col-9 card-body text-start">
-									<div class="card-title fs-5 "><strong>' .$row->a->task_title.'</strong></div>
-									<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->a->task_date.
+									<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
+									<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
 										'</div>
-									<div class="card-text" title=" '.$row->a->task_description.'">'.substr($row->a->task_description, 0, 20).'...</div>
+									<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
 									<div>
 										<i class="bi bi-trash text-danger  me-1" onclick=""></i>
 										<i class="bi bi-pen text-yellow me-1"></i>
 									</div>
 								</div>
 								<div class="col-3 d-flex flex-column align-content-center">
-									<span class="btn  mb-1 text-white p-2 w-100 high">
+									<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
 										</span>
-									<span class="btn btn-white bg-white p-2 border text-black w-100 bug">
+									<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
 										</span>
 								</div>
 							</div>
@@ -170,7 +170,7 @@ include "./php/display.php";
 						<?php
 						$i=1;
 						while($row = $status->fetch_object()){
-							if($row["status_label"]){
+							if($row->status_label=="In Progress"){
 							echo 
 						'<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
 							<div class="col-1">
@@ -178,19 +178,19 @@ include "./php/display.php";
 							</div>
 							<div class="col-11 d-flex justify-content-around align-items-center">
 							<div class=" col-9 card-body text-start">
-							<div class="card-title fs-5 "><strong>' .$row->a->task_title.'</strong></div>
-							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->a->task_date.
+							<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
+							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
 								'</div>
-							<div class="card-text" title=" '.$row->a->task_description.'">'.substr($row->a->task_description, 0, 20).'...</div>
+							<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
 							<div>
 								<i class="bi bi-trash text-danger  me-1" onclick=""></i>
 								<i class="bi bi-pen text-yellow me-1"></i>
 							</div>
 						</div>
 						<div class="col-3 d-flex flex-column align-content-center">
-							<span class="btn  mb-1 text-white p-2 w-100 high">
+							<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
 								</span>
-							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">
+							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
 								</span>
 						</div>
 					</div>
@@ -213,7 +213,7 @@ include "./php/display.php";
 						<?php
 						$i=1;
 						while($row = $status->fetch_object()){
-							if($row["status_label"]){
+							if($row->status_label=="Done"){
 							echo 
 						'<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
 							<div class="col-1">
@@ -221,19 +221,19 @@ include "./php/display.php";
 							</div>
 							<div class="col-11 d-flex justify-content-around align-items-center">
 							<div class=" col-9 card-body text-start">
-							<div class="card-title fs-5 "><strong>' .$row->a->task_title.'</strong></div>
-							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->a->task_date.
+							<div class="card-title fs-5 "><strong>' .$row->task_title.'</strong></div>
+							<div class="card-subtitle mb-2 text-muted">#'.$i. 'created in '.$row->task_date.
 								'</div>
-							<div class="card-text" title=" '.$row->a->task_description.'">'.substr($row->a->task_description, 0, 20).'...</div>
+							<div class="card-text" title=" '.$row->task_description.'">'.substr($row->task_description, 0, 20).'...</div>
 							<div>
 								<i class="bi bi-trash text-danger  me-1" onclick=""></i>
 								<i class="bi bi-pen text-yellow me-1"></i>
 							</div>
 						</div>
 						<div class="col-3 d-flex flex-column align-content-center">
-							<span class="btn  mb-1 text-white p-2 w-100 high">
+							<span class="btn  mb-1 text-white p-2 w-100 high">'.$row->priority_label.'
 								</span>
-							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">
+							<span class="btn btn-white bg-white p-2 border text-black w-100 bug">'.$row->type_label.'
 								</span>
 						</div>
 					</div>
