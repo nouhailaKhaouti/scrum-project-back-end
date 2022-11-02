@@ -134,7 +134,7 @@ include "./php/display.php";
 						<h4 class="center"><strong>To do (<span id="to-do-tasks-count"></span>)</strong></h4>
 						<!--  -->
 					</div>
-					<div class="container list-group list-group-flush p-2 rounded-2 h-90" style="background-color:#E6EEC7;" id="to-do-tasks">
+					<div class="box container list-group list-group-flush p-2 rounded-2 h-90" style="background-color:#E6EEC7;" id="to-do-tasks">
 						<!-- TO DO TASKS HERE -->
 						<?php
 						display("To_Do");
@@ -148,7 +148,7 @@ include "./php/display.php";
 					<div class="card-header" style="background-color:#DBE3B5;">
 						<h4 class="center"><strong>In Progress (<span id="in-progress-tasks-count"></span>)</strong></h4>
 					</div>
-					<div class="contenaire container list-group list-group-flush p-2 rounded-2 border h-90" id="in-progress-tasks" style="background-color:#E7EADA;">
+					<div class="box contenaire container list-group list-group-flush p-2 rounded-2 border h-90" id="in-progress-tasks" style="background-color:#E7EADA;">
 						<!-- IN PROGRESS TASKS HERE -->
 						<?php
 						display("In_Progress");
@@ -161,7 +161,7 @@ include "./php/display.php";
 						<h4 class="center"> <strong> Done (<span id="done-tasks-count"></span>) </strong></h4>
 
 					</div>
-					<div class="contenaire container list-group list-group-flush p-2 rounded-2 h-90" id="done-tasks" style="background-color:#E9ECE1;">
+					<div  class="box contenaire container list-group list-group-flush p-2 rounded-2 h-90" id="done-tasks" style="background-color:#E9ECE1;">
 						<!-- DONE TASKS HERE -->
 						<?php
 						display("Done");

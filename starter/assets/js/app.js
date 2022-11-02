@@ -82,8 +82,32 @@ function initTaskForm() {
   // Hide all action buttons
 }
 
+const draggables=document.querySelectorAll('.draggable');
+const containers=document.querySelectorAll('.box');
 
+draggables.forEach(draggable=> {
+  draggable.addEventListener('dragstart',()=>{
+    draggable.classList.add('dragging');
+  })
+  draggable.addEventListener('dragstop',()=>{
+    draggable.classList.remove('dragging');
+  })
+})
 
+containers.forEach(container=>{
+   container.addEventListener('dragover',e=>{
+    e.preventDefault()
+    const draggable=document.querySelector('.dragging');
+    container.appendChild(draggable)
+   })
+})
+
+function getDragAfterElement(conatiner,y){
+  const draggableElements=[...conatiner.querySelectorAll('.draggable:not(.dragging)')];
+  draggableElements.reduce((closest,child)=>{
+   const box=child.get
+  },{offset:Number.POSITIVE_INFINITY})
+}
   // console.log(event.target);
   // let title = event.target.getAttribute("title") ;
   // let description = event.target.getAttribute("description") ; 

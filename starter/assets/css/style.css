@@ -51,3 +51,8 @@ li a:active{
 .btn-visible{
     visibility: visible;
 }
+
+.draggable.dragging{
+
+    background-color: #dfdcd4;
+}

@@ -27,7 +27,7 @@ foreach ($status as $row) {
     $date = $row["task_date"];
     if ($taskStatus=="To_Do" && $status == "To Do") {
         echo
-        '<button class="card d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm" >
+        '<button  draggable="true"  class="draggable card d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm" >
     <div class="col-1">
           <i class="bi bi-question-circle fs-3"></i>
     </div>
@@ -54,7 +54,7 @@ foreach ($status as $row) {
         $i++;
     }else if($taskStatus=="In_Progress" && $status == "In Progress"){
         echo
-        '<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
+        '<button  draggable="true"   class="draggable card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
     <div class="col-1">
     <i class="spinner-border spinner-border-sm text-green me-1"></i>
     </div>
@@ -80,7 +80,7 @@ foreach ($status as $row) {
 $i++;
     }else if($taskStatus=="Done" && $status == "Done"){
         echo
-        '<button class="card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
+        '<button  draggable="true"  class="draggable card  d-flex flex-row justify-content-around align-items-center border-bottom border-muted p-2 border rounded-2 mb-2 cart shadow-sm">
     <div class="col-1">
     <i class="bi bi-check2-square fs-3"></i>
     </div>
