@@ -1,5 +1,7 @@
 <?php  
+session_start();
 
+$typeErr = $titleErr = $statusErr = "";
     $link=mysqli_connect("localhost","root","","scrumboard");
 
     if($link===false){
@@ -8,5 +10,3 @@
     }else{ 
         echo "database is connected". mysqli_get_host_info($link);
     }
-
-?>

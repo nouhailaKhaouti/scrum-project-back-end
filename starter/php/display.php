@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 function display($taskStatus){
  global $link;
 
@@ -36,8 +39,8 @@ foreach ($status as $row) {
         <div class="card-text" title=" ' . $description . '">' . substr($description, 0, 20) . '...</div>
         <div class="update_task">
             <i class="bi bi-trash text-danger  me-1" onClick="deletement('.$id.')" ></i>
-            <i class="bi bi-pen text-yellow me-1" task_id="'.$id.'" title="'. $title.'"  date="'.$date.'" description="'. $description.'" priority="'. $priority_id.'"  type="'. $type_id.'" status="'. $status_id.'"  onClick="editTask(event)"  ></i>
-        </div>
+            <i class="bi bi-pen text-yellow me-1"  onClick="editTask('.$id.',`'.$title.'`,`'.$date.'`,`'.$description.'`,'.$priority_id.','.$type_id.','.$status_id.')"  ></i>
+            </div>
     </div>
     <div class="col-3 d-flex flex-column align-content-center">
         <span class="btn  mb-1 text-white p-2 w-100 high">' . $priority . '
@@ -63,7 +66,7 @@ foreach ($status as $row) {
         <div class="card-text" title=" ' . $description . '">' . substr($description, 0, 20) . '...</div>
         <div>
         <i class="bi bi-trash text-danger  me-1" onClick="deletement('.$id.')" ></i>
-        <i class="bi bi-pen text-yellow me-1" task_id="'.$id.'" title="'. $title.'"  date="'.$date.'" description="'. $description.'" priority="'. $priority_id.'"  type="'. $type_id.'" status="'. $status_id.'"  onClick="editTask(event)"  ></i>
+        <i class="bi bi-pen text-yellow me-1"  onClick="editTask('.$id.',`'.$title.'`,`'.$date.'`,`'.$description.'`,'.$priority_id.','.$type_id.','.$status_id.')"  ></i>
         </div>
     </div>
     <div class="col-3 d-flex flex-column align-content-center">
@@ -89,7 +92,7 @@ $i++;
         <div class="card-text" title=" ' . $description . '">' . substr($description, 0, 20) . '...</div>
         <div>
         <i class="bi bi-trash text-danger  me-1" onClick="deletement('.$id.')" ></i>
-        <i class="bi bi-pen text-yellow me-1" task_id="'.$id.'" title="'. $title.'"  date="'.$date.'" description="'. $description.'" priority="'. $priority_id.'"  type="'. $type_id.'" status="'. $status_id.'"  onClick="editTask(event)"  ></i>
+        <i class="bi bi-pen text-yellow me-1"  onClick="editTask('.$id.',`'.$title.'`,`'.$date.'`,`'.$description.'`,'.$priority_id.','.$type_id.','.$status_id.')"  ></i>
         </div>
     </div>
     <div class="col-3 d-flex flex-column align-content-center">

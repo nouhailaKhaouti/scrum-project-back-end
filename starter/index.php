@@ -2,6 +2,7 @@
 require "./php/connect.php";
 
 include "./php/display.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +65,8 @@ include "./php/display.php";
 									<div id="hidden"></div>
 									<label for="titre" class="d-block">titre:</label>
 									<input class="form-control input-sm m-1 cart shadow-sm" type="text" name="title" id="title" value="title" required>
-									</br>
+                                    </br>
+									<p class="text-danger"><?php echo $titleErr;?></p>
 									<label for="type" class="d-block">type:</label>
 									<?php
 									while ($row = $type->fetch_object()) {
@@ -75,7 +77,8 @@ include "./php/display.php";
 									</div>';
 									}
 									?>
-									</br>
+									<p class="text-danger"><?php echo $typeErr;?></p>
+								</br>
 									<label for="propriete" class="d-block">propriete:</label>
 									<select class="form-select form-select-sm m-1 cart shadow-sm" name="priority" id="priority">
 										<?php
@@ -97,7 +100,8 @@ include "./php/display.php";
 										}
 										?>
 									</select>
-									</br>
+									<span class="text-danger"><?php echo $statusErr;?></span>
+                                    </br>
 									<label for="date" class="d-block">date:</label>
 									<input class="form-control input-sm m-1 cart shadow-sm" type="date" name="date" id="date">
 									</br>
@@ -114,6 +118,16 @@ include "./php/display.php";
 				</div>
 			</div>
 
+			<?php if (isset($_SESSION['message'])) : ?>
+                    <div class="alert alert-green alert-dismissible fade show">
+                        <strong>Success!</strong>
+                        <?php
+                        echo $_SESSION['message'];
+                        unset($_SESSION['message']);
+                        ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></span>
+                    </div>
+            <?php endif ?>
 			<div class="d-flex flex-wrap justify-content-around  ">
 				<div class="container-fluid mt-5 col-lg-4 col-md-6">
 					<div class="card-header" style="background-color:#C1CE8E;">
