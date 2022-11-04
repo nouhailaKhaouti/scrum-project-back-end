@@ -50,6 +50,7 @@ include "./php/display.php";
 				</div>
 				<div id="addTask-div">
 					<button id="addTask" type="submit" class="btn high text-white p-2 rounded-4 "><i class="bi bi-plus"></i> Add Task</button>
+</br>
 				</div>
 				<div class="modal shadow-sm" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
@@ -169,10 +170,11 @@ include "./php/display.php";
 					</div>
 				</div>
 			</div>
+			</br>
+			<a href="./php/deleteMulti.php"><button type="submit" class="btn btn-danger text-white p-2 rounded-4 "> Delete All Task</button></a>
 		</div>
 		<!-- END #content -->
-
-
+		
 		<!-- BEGIN scroll-top-btn -->
 		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"><i class="fa fa-angle-up"></i></a>
 		<!-- END scroll-top-btn -->

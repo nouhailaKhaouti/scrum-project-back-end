@@ -6,13 +6,39 @@ const form = document.getElementById("first"); //call our form with the id assig
 const addTask = document.getElementById("addTask-div");
 addTask.innerHTML = `<button id="addTask" type="submit" class="btn high text-white p-2 rounded-4 " onclick="createTask()"><i class="bi bi-plus" ></i> Add Task</button>
 `;
+const ele=document.getElementsByName("deleteAlot");
+
 form.addEventListener("submit", saveTask);
+
+// function deleteMulti(){
+//     let array=[];
+//   for (i = 0; i < ele.length; i++) {
+//     if (ele[i].checked) {
+//         array.push(ele.getAttribut("task_id"));
+//     }
+//   }
+
+//   if(confirm("Are you sure you want to Delete?")){
+//     let path='./php/deleteMulti.php?id='+id;
+//     for(i=1;i<=array.length;i++){
+//     path=path+'id'+i+'='+array[i];
+//     } 
+//     window.location.href=path;
+//   }
+// }
 
 function deletement(id){
   if(confirm("Are you sure you want to Delete?")){
        window.location.href='./php/delete.php?id='+id;
   }
-} 
+}
+
+// function deletements(){
+//   console.log("hiii");
+//   if(confirm("Are you sure you want to Delete?")){
+//        window.location.href='./php/deleteMulti.php';
+//   }
+// }
 
 function createTask() {
   // initialiser task form
@@ -82,32 +108,34 @@ function initTaskForm() {
   // Hide all action buttons
 }
 
-const draggables=document.querySelectorAll('.draggable');
-const containers=document.querySelectorAll('.box');
 
-draggables.forEach(draggable=> {
-  draggable.addEventListener('dragstart',()=>{
-    draggable.classList.add('dragging');
-  })
-  draggable.addEventListener('dragstop',()=>{
-    draggable.classList.remove('dragging');
-  })
-})
 
-containers.forEach(container=>{
-   container.addEventListener('dragover',e=>{
-    e.preventDefault()
-    const draggable=document.querySelector('.dragging');
-    container.appendChild(draggable)
-   })
-})
+// const draggables=document.querySelectorAll('.draggable');
+// const containers=document.querySelectorAll('.box');
 
-function getDragAfterElement(conatiner,y){
-  const draggableElements=[...conatiner.querySelectorAll('.draggable:not(.dragging)')];
-  draggableElements.reduce((closest,child)=>{
-   const box=child.get
-  },{offset:Number.POSITIVE_INFINITY})
-}
+// draggables.forEach(draggable=> {
+//   draggable.addEventListener('dragstart',()=>{
+//     draggable.classList.add('dragging');
+//   })
+//   draggable.addEventListener('dragstop',()=>{
+//     draggable.classList.remove('dragging');
+//   })
+// })
+
+// containers.forEach(container=>{
+//    container.addEventListener('dragover',e=>{
+//     e.preventDefault()
+//     const draggable=document.querySelector('.dragging');
+//     container.appendChild(draggable)
+//    })
+// })
+
+// function getDragAfterElement(conatiner,y){
+//   const draggableElements=[...conatiner.querySelectorAll('.draggable:not(.dragging)')];
+//   draggableElements.reduce((closest,child)=>{
+//    const box=child.get
+//   },{offset:Number.POSITIVE_INFINITY})
+// }
   // console.log(event.target);
   // let title = event.target.getAttribute("title") ;
   // let description = event.target.getAttribute("description") ; 
