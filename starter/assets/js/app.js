@@ -7,25 +7,25 @@ const addTask = document.getElementById("addTask-div");
 addTask.innerHTML = `<button id="addTask" type="submit" class="btn high text-white p-2 rounded-4 " onclick="createTask()"><i class="bi bi-plus" ></i> Add Task</button>
 `;
 const ele=document.getElementsByName("deleteAlot");
-
+const deleteElements=document.
 form.addEventListener("submit", saveTask);
 
-// function deleteMulti(){
-//     let array=[];
-//   for (i = 0; i < ele.length; i++) {
-//     if (ele[i].checked) {
-//         array.push(ele.getAttribut("task_id"));
-//     }
-//   }
+function deleteMulti(){
+    let array=[];
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked) {
+        array.push(ele.getAttribut("task_id"));
+    }
+  }
 
-//   if(confirm("Are you sure you want to Delete?")){
-//     let path='./php/deleteMulti.php?id='+id;
-//     for(i=1;i<=array.length;i++){
-//     path=path+'id'+i+'='+array[i];
-//     } 
-//     window.location.href=path;
-//   }
-// }
+  if(confirm("Are you sure you want to Delete?")){
+    let path='./php/deleteMulti.php?id='+id;
+    for(i=1;i<=array.length;i++){
+    path=path+'id'+i+'='+array[i];
+    } 
+    window.location.href=path;
+  }
+}
 
 function deletement(id){
   if(confirm("Are you sure you want to Delete?")){
